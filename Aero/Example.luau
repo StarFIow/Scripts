@@ -18,8 +18,8 @@ end)
 -- toggle (1 is tab, 2 is text)
 Aero:CreateToggle("Main", "Example Toggle", function(enabled)
     if enabled then
-        print("Toggle enabled")
+        print("Toggle is enabled")
     else
-        print("Toggle disabled")
+        print("Toggle is disabled")
     end
 end)
