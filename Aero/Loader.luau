@@ -199,9 +199,7 @@ local function Initialize()
     UI["Tabs_16"]["Size"] = UDim2.new(0.91844, 0, 0.10828, 0)
     UI["Tabs_16"]["Position"] = UDim2.new(0.00709, 0, 0.12102, 0)
     UI["Tabs_16"]["BackgroundTransparency"] = 1
-    UI["Tabs_16"]["ScrollBarImageColor3"] = Color3.fromRGB(0, 0, 0)
-    UI["Tabs_16"]["ScrollBarImageTransparency"] = 0.6000000238418579
-    UI["Tabs_16"]["ScrollBarThickness"] = 2
+    UI["Tabs_16"]["ScrollBarThickness"] = 0
     
     UI["UIListLayout_1a"] = Instance.new("UIListLayout")
     UI["UIListLayout_1a"].Parent = UI["Tabs_16"]
