@@ -205,7 +205,7 @@ local function Initialize()
     
     UI["UIListLayout_1a"] = Instance.new("UIListLayout")
     UI["UIListLayout_1a"].Parent = UI["Tabs_16"]
-    UI["UIListLayout_1a"]["HorizontalFlex"] = Enum.UIFlexAlignment.Fill
+    UI["UIListLayout_1a"]["HorizontalFlex"] = Enum.UIFlexAlignment.None
     UI["UIListLayout_1a"]["Padding"] = UDim.new(0, 4)
     UI["UIListLayout_1a"]["FillDirection"] = Enum.FillDirection.Horizontal
     
