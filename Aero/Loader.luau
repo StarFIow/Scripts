@@ -528,9 +528,10 @@ local function Initialize()
     
     function Aero:CreateSection(Tab, Name, Text)
     local TabContent = Tabs[Tab]
-    if not TabContent then return end
+    if not TabContent then return nil end
 
-    local Section = Instance.new("TextLabel", TabContent)
+    local Section = Instance.new("TextLabel")
+    Section.Parent = TabContent
     Section.TextWrapped = true
     Section.BorderSizePixel = 0
     Section.TextXAlignment = Enum.TextXAlignment.Left
@@ -539,11 +540,13 @@ local function Initialize()
     Section.FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
     Section.TextColor3 = Color3.fromRGB(255, 255, 255)
     Section.BackgroundTransparency = 1
-    Section.Size = UDim2.new(0, 546, 0, 18)
+    Section.Size = UDim2.new(1, 0, 0, 24)
     Section.Text = Text or Name
-    Section.Name = Name
+    Section.Name = "Section_" .. Name
+    Section.LayoutOrder = #TabContent:GetChildren()
+    
     return Section
-    end
+end
     
     return Aero
 end
