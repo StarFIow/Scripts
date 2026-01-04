@@ -1,37 +1,45 @@
 local Aero = {}
 local UI = {}
+local UIS = game:GetService("UserInputService")
 
-local function MakeDraggable(frame, handle)
-    handle = handle or frame
-    local dragging = false
-    local dragInput, mousePos, framePos
+local function Dragify(Frame)
+	local dragging = false
+	local dragStart
+	local startPos
 
-    handle.InputBegan:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseButton1 then
-            dragging = true
-            mousePos = input.Position
-            framePos = frame.Position
-            
-            input.Changed:Connect(function()
-                if input.UserInputState == Enum.UserInputState.End then
-                    dragging = false
-                end
-            end)
-        end
-    end)
+	local function update(input)
+		local delta = input.Position - dragStart
+		Frame.Position = UDim2.new(
+			startPos.X.Scale,
+			startPos.X.Offset + delta.X,
+			startPos.Y.Scale,
+			startPos.Y.Offset + delta.Y
+		)
+	end
 
-    handle.InputChanged:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseMovement then
-            dragInput = input
-        end
-    end)
+	Frame.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1
+		or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = true
+			dragStart = input.Position
+			startPos = Frame.Position
 
-    game:GetService("UserInputService").InputChanged:Connect(function(input)
-        if input == dragInput and dragging then
-            local delta = input.Position - mousePos
-            frame.Position = UDim2.new(framePos.X.Scale, framePos.X.Offset + delta.X, framePos.Y.Scale, framePos.Y.Offset + delta.Y)
-        end
-    end)
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end)
+
+	Frame.InputChanged:Connect(function(input)
+		if dragging and (
+			input.UserInputType == Enum.UserInputType.MouseMovement
+			or input.UserInputType == Enum.UserInputType.Touch
+		) then
+			update(input)
+		end
+	end)
 end
 
 local function Initialize()
@@ -348,8 +356,8 @@ local function Initialize()
     local player = game.Players.LocalPlayer
     ImageLabel.Image = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. player.UserId .. "&width=420&height=420&format=png"
     
-    MakeDraggable(UI["Aero_b"], UI["Title_11"])
-    MakeDraggable(UI["Show_2"], UI["TextLabel_6"])
+    Dragify(UI["Aero_b"])
+    Dragify(UI["Show_2"])
     
     UI["Close_c"].MouseButton1Click:Connect(function()
         UI["ScreenGui_1"]:Destroy()
@@ -408,6 +416,7 @@ local function Initialize()
         TabContent["AutomaticCanvasSize"] = Enum.AutomaticSize.Y
         TabContent["Size"] = UDim2.new(1, 0, 1, 0)
         TabContent["BackgroundTransparency"] = 1
+        TabContent["ScrollBarThickness"] = 0
         TabContent.Visible = false
         
         local UIListLayout = Instance.new("UIListLayout")
