@@ -526,9 +526,27 @@ local function Initialize()
     UI["Show_2"].Position = UDim2.new(0.38729, 0, 0.00566, 0)
     UI["Aero_b"].Visible = false
     
+    function Aero:CreateSection(Tab, Name, Text)
+    local TabContent = Tabs[Tab]
+    if not TabContent then return end
+
+    local Section = Instance.new("TextLabel", TabContent)
+    Section.TextWrapped = true
+    Section.BorderSizePixel = 0
+    Section.TextXAlignment = Enum.TextXAlignment.Left
+    Section.TextScaled = true
+    Section.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    Section.FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+    Section.TextColor3 = Color3.fromRGB(255, 255, 255)
+    Section.BackgroundTransparency = 1
+    Section.Size = UDim2.new(0, 546, 0, 18)
+    Section.Text = Text or Name
+    Section.Name = Name
+
+    return Section
+end
+    
     return Aero
 end
-
 Initialize()
-
 return Aero
