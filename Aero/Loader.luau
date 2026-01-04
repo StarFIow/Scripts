@@ -485,7 +485,7 @@ local function Initialize()
         ToggleText["TextColor3"] = Color3.fromRGB(255, 255, 255)
         ToggleText["BackgroundTransparency"] = 1
         ToggleText["Size"] = UDim2.new(0.90476, 0, 0.52941, 0)
-        ToggleText["Text"] = "  " .. Name
+        ToggleText["Text"] = "  " .. Nam
         ToggleText["Position"] = UDim2.new(0.00366, 0, 0.23529, 0)
         
         local ToggleButton = Instance.new("ImageButton")
