@@ -276,6 +276,7 @@ local function Initialize()
     UI["Content_21"]["Size"] = UDim2.new(0.97518, 0, 0.72611, 0)
     UI["Content_21"]["Position"] = UDim2.new(0.01418, 0, 0.26115, 0)
     UI["Content_21"]["BackgroundTransparency"] = 1
+    UI["Content_21"]["ScrollBarThickness"] = 0
     
     UI["UIListLayout_25"] = Instance.new("UIListLayout")
     UI["UIListLayout_25"].Parent = UI["Content_21"]
