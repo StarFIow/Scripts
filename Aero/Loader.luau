@@ -200,6 +200,12 @@ local function Initialize()
     UI["Tabs_16"]["Position"] = UDim2.new(0.00709, 0, 0.12102, 0)
     UI["Tabs_16"]["BackgroundTransparency"] = 1
     
+    UI["UIListLayout_1a"] = Instance.new("UIListLayout")
+    UI["UIListLayout_1a"].Parent = UI["Tabs_16"]
+    UI["UIListLayout_1a"]["HorizontalFlex"] = Enum.UIFlexAlignment.Fill
+    UI["UIListLayout_1a"]["Padding"] = UDim.new(0, 4)
+    UI["UIListLayout_1a"]["FillDirection"] = Enum.FillDirection.Horizontal
+    
     UI["Tab_1_17"] = Instance.new("TextButton")
     UI["Tab_1_17"].Parent = UI["Tabs_16"]
     UI["Tab_1_17"]["TextWrapped"] = true
@@ -218,12 +224,6 @@ local function Initialize()
     
     local UICorner_19 = Instance.new("UICorner")
     UICorner_19.Parent = UI["Tabs_16"]
-    
-    UI["UIListLayout_1a"] = Instance.new("UIListLayout")
-    UI["UIListLayout_1a"].Parent = UI["Tabs_16"]
-    UI["UIListLayout_1a"]["HorizontalFlex"] = Enum.UIFlexAlignment.Fill
-    UI["UIListLayout_1a"]["Padding"] = UDim.new(0, 4)
-    UI["UIListLayout_1a"]["FillDirection"] = Enum.FillDirection.Horizontal
     
     UI["Tab_2_1b"] = Instance.new("TextButton")
     UI["Tab_2_1b"].Parent = UI["Tabs_16"]
@@ -276,6 +276,11 @@ local function Initialize()
     UI["Content_21"]["Position"] = UDim2.new(0.01418, 0, 0.26115, 0)
     UI["Content_21"]["BackgroundTransparency"] = 1
     
+    UI["UIListLayout_25"] = Instance.new("UIListLayout")
+    UI["UIListLayout_25"].Parent = UI["Content_21"]
+    UI["UIListLayout_25"]["Wraps"] = true
+    UI["UIListLayout_25"]["Padding"] = UDim.new(0, 4)
+    
     UI["CreateBtn_22"] = Instance.new("TextButton")
     UI["CreateBtn_22"].Parent = UI["Content_21"]
     UI["CreateBtn_22"]["BorderSizePixel"] = 0
@@ -294,11 +299,6 @@ local function Initialize()
     
     local UICorner_24 = Instance.new("UICorner")
     UICorner_24.Parent = UI["Content_21"]
-    
-    UI["UIListLayout_25"] = Instance.new("UIListLayout")
-    UI["UIListLayout_25"].Parent = UI["Content_21"]
-    UI["UIListLayout_25"]["Wraps"] = true
-    UI["UIListLayout_25"]["Padding"] = UDim.new(0, 4)
     
     UI["CreateToggle_26"] = Instance.new("Frame")
     UI["CreateToggle_26"].Parent = UI["Content_21"]
