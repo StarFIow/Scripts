@@ -542,9 +542,8 @@ local function Initialize()
     Section.Size = UDim2.new(0, 546, 0, 18)
     Section.Text = Text or Name
     Section.Name = Name
-
     return Section
-end
+    end
     
     return Aero
 end
