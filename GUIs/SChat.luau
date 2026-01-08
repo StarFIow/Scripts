@@ -103,7 +103,7 @@ local SChat = {
     allowedUsers = {
         "IdkMyNameBro_012",
         "yourgames9", 
-        "Levibreyties1"
+        "hamza_pro231"
     }
 }
 
